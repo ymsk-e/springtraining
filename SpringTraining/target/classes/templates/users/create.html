@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>ユーザ新規登録</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<body>
+
+    <h2>ユーザ新規登録</h2>
+
+    <form th:action="@{/users}" th:object="${form}" method="post">
+
+        <div class="form-row">
+            <label for="loginId">ログインID</label>
+            <input type="text" th:field="*{loginId}" id="loginId" required />
+            <div class="feedback-area invalid-feedback"></div>
+        </div>
+
+        <div class="form-row">
+            <label for="name">氏名</label>
+            <input type="text" th:field="*{name}" id="name" required />
+            <div class="feedback-area invalid-feedback"></div>
+        </div>
+
+        <div class="form-row">
+            <label for="password">パスワード</label>
+            <input type="password" th:field="*{password}" id="password" required />
+            <div class="feedback-area invalid-feedback"></div>
+        </div>
+
+        <div class="form-row">
+            <label for="passwordConfirm">パスワード（確認用）</label>
+            <input type="password" th:field="*{passwordConfirm}" id="passwordConfirm" required />
+            <div class="feedback-area invalid-feedback"></div>
+        </div>
+
+        <div class="form-row">
+            <label for="branch">支店</label>
+            <select th:field="*{branchId}" id="branch" required>
+                <option value="1">本社</option>
+                <option value="2">A支社</option>
+                <option value="3">B支社</option>
+                <option value="4">C支社</option>
+            </select>
+        </div>
+
+        <div class="form-row">
+            <label for="department">部署</label>
+            <select th:field="*{departmentId}" id="department" required>
+                <option value="1">総務人事部</option>
+                <option value="2">情報管理部</option>
+                <option value="3">営業部</option>
+                <option value="4">技術部</option>
+            </select>
+        </div>
+
+        <div class="form-row right-ctrl-area">
+            <button type="submit">登録</button>
+        </div>
+
+    </form>
+
+    <a href="index.html">戻る</a>
+
+</body>
+<script src="script1.js"></script>
+
+</html>
